@@ -57,4 +57,32 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         found_user = User.find_by_username("humo")
         self.assertEqual(found_user.password,test_user.password)
+    def test_user_exists(self):
+        '''
+        test to check if we can return a boolean if we cannot find the user
+        '''
+        self.new_user.save_user()
+        test_user = User("twitter", "ty", "667") # new user
+        test_user.save_user()
+        user_exists = User.user_exists("ty")
+        self.assertTrue(user_exists)
+    def test_display_all_users(self):
+        '''
+        method that returns a list of all users saved
+        '''
+        self.assertEqual(User.display_users(),User.user_list)
+    def set_Up(self):
+        '''
+        set up method that runs before each Test
+        '''
+        self.new_credentials = credentials("twitter","billowbashir","123456789")
+    def tear_Down(self):
+        '''
+        method that does clean up after each test case has run.
+        '''
+        credentials.credentials_list=[]
+    def test_init(self):
+        self.assertEqual(self.new_credentials.platform_name,"twitter")
+        self.assertEqual(self.new_credentials.user_name,"billowbashir")
+        self.assertEqual(self.new_credentials.password,"123456789")
         
