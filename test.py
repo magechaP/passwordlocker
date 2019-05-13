@@ -85,4 +85,38 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_credentials.platform_name,"twitter")
         self.assertEqual(self.new_credentials.user_name,"billowbashir")
         self.assertEqual(self.new_credentials.password,"123456789")
+    def test_save_credentials(self):
+        '''
+        test case to test if the object is saved into the credentials_list
+        '''
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(credentials.credentials_list),1)
+    def test_save_multiple_credentials(self):
+        '''
+        test case to test if we can save multiple credentials into the credentials_list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = credentials("test","testname","987654321")
+        test_credentials.save_credentials()
+
+        self.assertEqual(len(credentials.credentials_list),2)
+    def test_delete_credentials(self):
+        '''
+        test case to test if we can delete credentials from the credentials_list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = credentials("test","testname","987654321")
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials()
+        self.assertEqual(len(credentials.credentials_list),1)
+    def test_find_credentials_by_platform_name(self):
+        '''
+        test case to test if we can search for credentials in the credentials_list by the platform_name and display
+        '''
+        test_credentials = credentials("test","testname","987654321")
+        test_credentials.save_credentials()
+
+        found_credential=credentials.find_credentials_by_platform_name("test")
+        self.assertEqual(found_credential.username,test_credentials.user_name)
         
