@@ -124,3 +124,7 @@ def main():
             exit()
         else:
             print('you did not use the short_code!!!')
+
+
+ if __name__ == '__main__':
+     main()          
