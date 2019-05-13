@@ -133,4 +133,9 @@ class TestUser(unittest.TestCase):
         test case to test whether we can display a list of all save credentials
         '''
         self.assertEqual(credentials.display_all_credentials(),credentials.credentials_list)
+
+
+
+if __name__ == '__main__':
+    unittest.main()
         
