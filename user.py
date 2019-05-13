@@ -3,7 +3,7 @@ class User:
     Class that generates new instances of contacts.
     """
 
-    user_list = [] # empty user list
+    user_list = [] # empty user list array
 
     def __init__(self,name,username,password):
         self.name = name
