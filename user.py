@@ -36,3 +36,13 @@ class User:
         '''
         method that checks if a user exists froom the user list
         '''
+        for user in cls.user_list:
+            if user.username == username:
+                return True
+        return False
+    @classmethod
+    def display_users(cls):
+        '''
+        method that returns a list of all users saved
+        '''
+        return cls.user_list
