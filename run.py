@@ -82,3 +82,30 @@ def main():
             print ('\n')
             print(f"New password for {pname} and account {uname} created")
             print ('\n')
+        elif short_code == 'dp':
+            if display_user():
+                print('here are your users')
+                print('make a password for viewing your credentials')
+                ps = input()
+                print('password...')
+                password = input()
+                if password == ps:
+                    for user in display_user():
+                        print(f'{user.name} {user.username}..{user.password}')
+                        print('\n')
+                else:
+                    print('you entered wrong password')
+            else:
+                print('/n')
+                print('you dont seem to have the user saved yet')
+                print('\n')
+        elif short_code == 'fp':
+            print('enter the platform you want to search for')
+            search_platform_name = input()
+            if check_existing_user(search_platform_name):
+                search_platform_name = find_user(search_platform_name)
+                print(f'{search_platform_name.username}{search_platform_name.name}')
+                print('-'*20)
+                print(f'password is {search_platform_name.password}')
+            else:
+                print('the user does not exist')
