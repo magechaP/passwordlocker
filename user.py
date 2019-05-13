@@ -46,3 +46,8 @@ class User:
         method that returns a list of all users saved
         '''
         return cls.user_list
+
+
+
+if __name__ == '__main__':
+    unittest.main()
