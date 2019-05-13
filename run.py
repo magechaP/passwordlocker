@@ -40,3 +40,45 @@ def copy_password(username):
     '''
      my_password = UserData.show_user_data(username)
      pyperclip.copy(my_password.password)
+
+def main():
+    print('Hello! welcome to your password locker. what is your name?')
+    platform_name = input()
+    print(f'hello {platform_name} what do you want to acess?')
+    print('\n')
+    while True:
+        print('Use these short codes: sp - save password, gp - generate password, cp - copy password, dp - display passwords, fp - find passwords, ex - exit ')
+        short_code = input().lower()
+        if short_code == 'sp':
+            print ('new user')
+            print('-'*10)
+            print('platform_name')
+            p_name = input()
+            print('username')
+            u_name = input()
+            print('password')
+            ps = input()
+            save_user(create_user(p_name,u_name,ps))
+            print('\n')
+            print(f'new user {p_name} created')
+            print('\n')
+        elif short_code == 'gp':
+            print("New password")
+            print("-"*10)
+
+            print ("platform name ....")
+            pname = input()
+
+            print("username ...")
+            uname = input()
+            chars = 'abcdefghijklmnopqrstuvwxyz123456789'
+            password = ''
+            print('dictate the length of your password')
+            r  = int(input())
+            for c in range(r):
+                password= random.choice(chars)
+                print(password, end="")
+            save_user(create_user(pname,uname,password)) # create and save new credentials.
+            print ('\n')
+            print(f"New password for {pname} and account {uname} created")
+            print ('\n')
