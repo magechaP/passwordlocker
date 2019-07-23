@@ -4,7 +4,7 @@
 *this is where you store all your credentials under one password
 * Then you register for an account which you will use to log in everytime you access the website/ email
 ## Known Bugs
-* There are no known bugs at the moment. 
+* There are no known bugs at the moment.if you encounter any please feel free to reach out 
 ## Technologies Used
  1.pyrhon3.6.7
 ## Support and contact details
